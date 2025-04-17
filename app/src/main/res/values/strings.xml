@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">BeautySalonApp</string>
+    <string name="account_logo">Account Icon</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="register">Register</string>
+    <string name="login">Login</string>
+    <string name="full_name_hint">Full Name</string>
+    <string name="email_hint">Email</string>
+    <string name="phone_hint">Phone</string>
+    <string name="username_hint">Username</string>
+    <string name="password_hint">Password</string>
+
 </resources>
