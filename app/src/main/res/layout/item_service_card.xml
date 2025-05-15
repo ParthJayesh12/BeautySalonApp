@@ -1,0 +1,40 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/rounded_corner"
+    android:padding="8dp"
+    android:layout_margin="8dp"
+    android:gravity="center_horizontal">
+
+    <!-- Clickable Image -->
+    <ImageView
+        android:id="@+id/serviceImage"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center"
+        android:contentDescription="@string/service_image_description"
+        android:clickable="true"
+        android:focusable="true" />
+
+    <!-- Service Name -->
+    <TextView
+        android:id="@+id/serviceName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:layout_marginTop="8dp"
+        android:gravity="center" />
+
+    <!-- Service Description -->
+    <TextView
+        android:id="@+id/serviceDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
+        android:textSize="14sp"
+        android:layout_marginTop="4dp"
+        android:gravity="center" />
+</LinearLayout>

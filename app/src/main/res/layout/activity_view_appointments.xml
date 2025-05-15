@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scrollView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/login_background"
+    android:fillViewport="true"
+    tools:context=".ViewAppointmentsActivity">
+
+    <LinearLayout
+        android:id="@+id/parentLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Title -->
+        <TextView
+            android:id="@+id/titleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Your Appointments"
+            android:textSize="24sp"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:layout_gravity="center_horizontal"
+            android:paddingBottom="16dp" />
+
+        <!-- Upcoming Appointments -->
+        <TextView
+            android:id="@+id/upcomingTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Upcoming Appointments"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:paddingBottom="8dp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/upcomingRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="false" />
+
+        <!-- Past Appointments -->
+        <TextView
+            android:id="@+id/pastTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Past Appointments"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:paddingTop="24dp"
+            android:paddingBottom="8dp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/pastRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="false" />
+
+        <Button
+            android:id="@+id/backToHomeBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:text="@string/back_to_home"
+            android:textColor="#3B84F1"
+            android:backgroundTint="@color/white"/>
+
+
+    </LinearLayout>
+</ScrollView>

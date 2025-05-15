@@ -8,7 +8,7 @@
     android:background="@drawable/login_background"
     tools:context=".MainActivity">
 
-    <!-- Uses custom template background -->
+
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -25,8 +25,7 @@
             android:layout_width="160dp"
             android:layout_height="160dp"
             android:src="@drawable/icon_account_logo"
-            android:contentDescription="@string/account_logo"
-            />
+            android:contentDescription="@string/account_logo" />
 
         <EditText
             android:id="@+id/username_input"
@@ -43,8 +42,7 @@
             android:textColor="@color/white"
             android:textColorHint="@color/white"
             android:textSize="20sp"
-            android:autofillHints="username"
-            />
+            android:autofillHints="username" />
 
         <EditText
             android:id="@+id/password_input"
@@ -61,9 +59,7 @@
             android:textColor="@color/white"
             android:textColorHint="@color/white"
             android:textSize="20sp"
-            android:autofillHints="password"
-            />
-
+            android:autofillHints="password" />
 
         <Button
             android:id="@+id/login_btn"
@@ -78,7 +74,7 @@
             android:textColor="#3B84F1"
             android:textSize="20sp" />
 
-        <!-- Combined row for Forgot Password and Register -->
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -116,9 +112,5 @@
                 android:focusable="true"
                 android:gravity="end" />
         </LinearLayout>
-
-        <!-- Social login can be added here in future if needed -->
-
     </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

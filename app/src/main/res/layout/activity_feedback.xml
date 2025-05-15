@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/login_background"
+    android:padding="24dp">
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/feedbackTitleLbl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/leave_feedback"
+        android:textSize="24sp"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Service Name -->
+    <TextView
+        android:id="@+id/serviceNameLbl"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/service_massage"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/feedbackTitleLbl"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="12dp" />
+
+    <!-- Date and Staff Row -->
+    <LinearLayout
+        android:id="@+id/dateStaffRow"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:weightSum="2"
+        app:layout_constraintTop_toBottomOf="@id/serviceNameLbl"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp">
+
+        <TextView
+            android:id="@+id/dateLbl"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/sample_date"
+            android:textColor="@android:color/white"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/staffNameLbl"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/sample_staff"
+            android:textColor="@android:color/white"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <!-- Rating Label -->
+    <TextView
+        android:id="@+id/ratingLbl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/rate_experience"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/dateStaffRow"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp" />
+
+    <!-- RatingBar -->
+    <RatingBar
+        android:id="@+id/ratingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:numStars="5"
+        android:stepSize="1.0"
+        app:layout_constraintTop_toBottomOf="@id/ratingLbl"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp" />
+
+    <!-- Comment Label -->
+    <TextView
+        android:id="@+id/commentLbl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/leave_comment"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/ratingBar"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="16dp" />
+
+    <!-- Comment Input -->
+    <EditText
+        android:id="@+id/commentEditText"
+        android:layout_width="0dp"
+        android:layout_height="120dp"
+        android:background="@drawable/rounded_corner"
+        android:hint="@string/type_feedback"
+        android:autofillHints="text"
+        android:gravity="top|start"
+        android:padding="12dp"
+        android:inputType="textMultiLine"
+        android:textColorHint="@android:color/white"
+        android:textColor="@android:color/white"
+        app:layout_constraintTop_toBottomOf="@id/commentLbl"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp" />
+
+
+    <!-- Buttons Row -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/commentEditText"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="24dp">
+
+        <Button
+            android:id="@+id/submitFeedbackBtn"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/submit"
+            android:textColor="#3B84F1"
+            android:backgroundTint="@color/white"
+            tools:ignore="ButtonStyle" />
+
+        <Button
+            android:id="@+id/backToHomeBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/back_to_home"
+            android:textColor="#3B84F1"
+            android:layout_marginStart="12dp"
+            android:backgroundTint="@color/white"
+            tools:ignore="ButtonStyle" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

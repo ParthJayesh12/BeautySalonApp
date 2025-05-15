@@ -9,5 +9,45 @@
     <string name="phone_hint">Phone</string>
     <string name="username_hint">Username</string>
     <string name="password_hint">Password</string>
+    <string name="profile_image_desc">Profile Image Placeholder</string>
+    <string name="welcome_user">Welcome, User!</string>
+    <string name="available_services">Available Services</string>
+    <string name="service_name">Service Name</string>
+    <string name="service_description">Service Description</string>
+    <string name="service_image_description">service_image_description</string>
+    <string name="book_new_appointment">Book New Appointment</string>
+    <string name="view_appointment">View Appointment</string>
+    <string name="logout">Logout</string>
+    <string name="select">Select</string>
+    <string name="booking_screen">Booking Screen</string>
+    <string name="selected_service">Selected Service:</string>
+    <string name="booking_service_description">Service Description here</string>
+    <string name="preferred_staff">Preferred Staff</string>
+    <string name="select_date">Select Date</string>
+    <string name="select_time">Select Time</string>
+    <string name="confirm_booking">Confirm Booking</string>
+    <string name="cancel_booking">Cancel Booking</string>
+    <string name="selected_service_dynamic">Selected Service: %1$s</string>
+    <string name="thank_you_for_your_booking">Thank you for your booking!</string>
+    <string name="your_appointments">Your Appointments</string>
+    <string name="upcoming_appointments">Upcoming Appointments</string>
+    <string name="past_appointments">Past Appointments</string>
+    <string name="staff_label">Staff: %1$s</string>
+    <string name="sample_date">12/05/2025</string>
+    <string name="sample_time">15:30</string>
+    <string name="sample_status">Confirmed</string>
+    <string name="sample_staff">Staff: Nisha</string>
+    <string name="cancel">Cancel</string>
+    <string name="feedback">Feedback</string>
+    <string name="leave_feedback">Leave Feedback</string>
+    <string name="service_label">Service:</string>
+    <string name="date_label">Date:</string>
+    <string name="rate_experience">Rate your experience</string>
+    <string name="leave_comment">Leave a comment</string>
+    <string name="submit">Submit</string>
+    <string name="back_to_home">Back to Home</string>
+    <string name="type_feedback">Type your feedback…</string>
+    <string name="service_massage">Service: Massage</string>
+
 
 </resources>
