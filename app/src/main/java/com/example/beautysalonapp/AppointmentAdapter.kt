@@ -1,13 +1,16 @@
 package com.example.beautysalonapp
 
+import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import android.content.Context
-import android.content.Intent
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
 class AppointmentAdapter(
     private val context: Context,
@@ -35,17 +38,39 @@ class AppointmentAdapter(
 
         holder.dateLbl.text = appointment.date
         holder.timeLbl.text = appointment.time
-        holder.staffLbl.text = context.getString(R.string.staff_label, appointment.staffName)
+        holder.staffLbl.text = context.getString(R.string.staff_label, appointment.staff)
         holder.statusLbl.text = appointment.status
 
-        // Show or hide cancel button depending on section
         holder.cancelBtn.visibility = if (showCancelBtn) View.VISIBLE else View.GONE
 
+        holder.cancelBtn.setOnClickListener {
+            val db = FirebaseFirestore.getInstance()
+            val currentUserId = FirebaseAuth.getInstance().currentUser?.uid
+
+            if (currentUserId == appointment.userId) {
+                db.collection("appointments")
+                    .document(appointment.appointmentId)
+                    .delete()
+                    .addOnSuccessListener {
+                        Toast.makeText(context, "Appointment cancelled", Toast.LENGTH_SHORT).show()
+
+                        // 🔄 Refresh the appointment list after cancellation
+                        if (context is ViewAppointmentsActivity) {
+                            context.loadAppointments()  // make sure this method is public
+                        }
+                    }
+                    .addOnFailureListener {
+                        Toast.makeText(context, "Failed to cancel", Toast.LENGTH_SHORT).show()
+                    }
+            } else {
+                Toast.makeText(context, "Access denied", Toast.LENGTH_SHORT).show()
+            }
+        }
 
         holder.feedbackBtn.setOnClickListener {
             val intent = Intent(context, FeedbackActivity::class.java)
-            intent.putExtra("service", appointment.serviceName)
-            intent.putExtra("staff", appointment.staffName)
+            intent.putExtra("service", appointment.service)
+            intent.putExtra("staff", appointment.staff)
             intent.putExtra("date", appointment.date)
             intent.putExtra("time", appointment.time)
             context.startActivity(intent)
