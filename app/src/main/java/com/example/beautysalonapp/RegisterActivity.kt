@@ -60,53 +60,54 @@ class RegisterActivity : AppCompatActivity() {
             val username = usernameInput.text.toString().trim()
             val password = passwordInput.text.toString().trim()
 
-            if (email.isNotEmpty() && password.isNotEmpty()) {
-                progressBar.visibility = ProgressBar.VISIBLE
+            //  ALL FIELDS VALIDATION
+            if (fullName.isEmpty() || email.isEmpty() || phone.isEmpty() || username.isEmpty() || password.isEmpty()) {
+                Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
 
-                auth.createUserWithEmailAndPassword(email, password)
-                    .addOnCompleteListener { task ->
-                        if (task.isSuccessful) {
-                            Log.i("Register", "Firebase account created for $email")
+            progressBar.visibility = ProgressBar.VISIBLE
 
-                            val userId = auth.currentUser?.uid
-                            val db = FirebaseFirestore.getInstance()
+            auth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        Log.i("Register", "Firebase account created for $email")
 
-                            val userMap = hashMapOf(
-                                "fullName" to fullName,
-                                "phone" to phone,
-                                "username" to username,
-                                "email" to email
-                            )
+                        val userId = auth.currentUser?.uid
+                        val db = FirebaseFirestore.getInstance()
 
-                            if (userId != null) {
-                                db.collection("users").document(userId).set(userMap)
-                                    .addOnSuccessListener {
-                                        Log.i("Firestore", "User profile added for $userId")
-                                        progressBar.visibility = ProgressBar.GONE
-                                        val intent = Intent(this, HomeActivity::class.java)
-                                        startActivity(intent)
-                                        finish()
-                                    }
-                                    .addOnFailureListener { e ->
-                                        progressBar.visibility = ProgressBar.GONE
-                                        Log.e("Firestore", "Failed to store user data", e)
-                                        Toast.makeText(this, "Account created, but failed to store profile", Toast.LENGTH_LONG).show()
-                                    }
-                            } else {
-                                progressBar.visibility = ProgressBar.GONE
-                                Toast.makeText(this, "Account created but user ID is null", Toast.LENGTH_LONG).show()
-                            }
+                        val userMap = hashMapOf(
+                            "fullName" to fullName,
+                            "phone" to phone,
+                            "username" to username,
+                            "email" to email
+                        )
 
+                        if (userId != null) {
+                            db.collection("users").document(userId).set(userMap)
+                                .addOnSuccessListener {
+                                    Log.i("Firestore", "User profile added for $userId")
+                                    progressBar.visibility = ProgressBar.GONE
+                                    val intent = Intent(this, HomeActivity::class.java)
+                                    startActivity(intent)
+                                    finish()
+                                }
+                                .addOnFailureListener { e ->
+                                    progressBar.visibility = ProgressBar.GONE
+                                    Log.e("Firestore", "Failed to store user data", e)
+                                    Toast.makeText(this, "Account created, but failed to store profile", Toast.LENGTH_LONG).show()
+                                }
                         } else {
                             progressBar.visibility = ProgressBar.GONE
-                            Log.e("Register", "Registration failed", task.exception)
-                            Toast.makeText(this, "Registration failed: ${task.exception?.message}", Toast.LENGTH_LONG).show()
+                            Toast.makeText(this, "Account created but user ID is null", Toast.LENGTH_LONG).show()
                         }
-                    }
 
-            } else {
-                Toast.makeText(this, "Email and password cannot be empty", Toast.LENGTH_SHORT).show()
-            }
+                    } else {
+                        progressBar.visibility = ProgressBar.GONE
+                        Log.e("Register", "Registration failed", task.exception)
+                        Toast.makeText(this, "Registration failed: ${task.exception?.message}", Toast.LENGTH_LONG).show()
+                    }
+                }
         }
     }
 }

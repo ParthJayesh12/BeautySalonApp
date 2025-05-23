@@ -60,7 +60,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-
+    <!-- View Appointments Button -->
     <Button
         android:id="@+id/viewAptBtn"
         android:layout_width="0dp"
@@ -74,11 +74,29 @@
         android:textColor="#3B84F1"
         android:textSize="16sp"
         android:padding="10dp"
+        app:layout_constraintBottom_toTopOf="@id/adminPanelBtn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Admin Panel Button (added) -->
+    <Button
+        android:id="@+id/adminPanelBtn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="8dp"
+        android:text="Admin Panel"
+        android:backgroundTint="@color/white"
+        android:textColor="#3B84F1"
+        android:textSize="16sp"
+        android:padding="10dp"
+        android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@id/logoutBtn"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-
+    <!-- Logout Button -->
     <Button
         android:id="@+id/logoutBtn"
         android:layout_width="0dp"

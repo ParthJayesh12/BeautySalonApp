@@ -31,11 +31,11 @@ class HomeActivity : AppCompatActivity() {
         welcomeText = findViewById(R.id.welcomeText)
         logoutBtn = findViewById(R.id.logoutBtn)
         val viewAptBtn = findViewById<Button>(R.id.viewAptBtn)
+        val adminBtn = findViewById<Button>(R.id.adminPanelBtn)
         val recyclerView = findViewById<RecyclerView>(R.id.serviceRecyclerView)
 
         recyclerView.layoutManager = GridLayoutManager(this, 2, RecyclerView.VERTICAL, false)
         fetchServicesFromFirestore()
-
 
         auth = FirebaseAuth.getInstance()
         db = FirebaseFirestore.getInstance()
@@ -49,6 +49,12 @@ class HomeActivity : AppCompatActivity() {
                     if (document != null && document.exists()) {
                         val username = document.getString("username")
                         welcomeText.text = "Welcome, $username!"
+
+                        // 🔒 Check admin role
+                        val role = document.getString("role")
+                        if (role == "admin") {
+                            adminBtn.visibility = Button.VISIBLE
+                        }
                     } else {
                         Log.w("Firestore", "No such document")
                         welcomeText.text = "Welcome!"
@@ -73,6 +79,11 @@ class HomeActivity : AppCompatActivity() {
 
         viewAptBtn.setOnClickListener {
             val intent = Intent(this, ViewAppointmentsActivity::class.java)
+            startActivity(intent)
+        }
+
+        adminBtn.setOnClickListener {
+            val intent = Intent(this, AdminPanelActivity::class.java)
             startActivity(intent)
         }
 
@@ -101,5 +112,4 @@ class HomeActivity : AppCompatActivity() {
                 Log.e("Firestore", "Error getting services", e)
             }
     }
-
 }

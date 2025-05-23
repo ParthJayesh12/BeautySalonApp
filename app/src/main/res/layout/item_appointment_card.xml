@@ -9,6 +9,7 @@
     android:background="@drawable/rounded_corner"
     android:elevation="4dp">
 
+    <!-- Date / Time / Status Row -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -23,11 +24,7 @@
             android:layout_weight="1"
             android:text="@string/sample_date"
             android:textColor="@android:color/white"
-            android:textSize="14sp"
-            android:shadowColor="#80000000"
-            android:shadowDx="1"
-            android:shadowDy="1"
-            android:shadowRadius="1" />
+            android:textSize="14sp" />
 
         <TextView
             android:id="@+id/timeLbl"
@@ -36,11 +33,7 @@
             android:layout_weight="1"
             android:text="@string/sample_time"
             android:textColor="@android:color/white"
-            android:textSize="14sp"
-            android:shadowColor="#80000000"
-            android:shadowDx="1"
-            android:shadowDy="1"
-            android:shadowRadius="1" />
+            android:textSize="14sp" />
 
         <TextView
             android:id="@+id/statusLbl"
@@ -50,13 +43,29 @@
             android:text="@string/sample_status"
             android:textColor="@android:color/white"
             android:textSize="14sp"
-            android:textStyle="bold"
-            android:shadowColor="#80000000"
-            android:shadowDx="1"
-            android:shadowDy="1"
-            android:shadowRadius="1" />
+            android:textStyle="bold" />
     </LinearLayout>
 
+    <!-- Service Label -->
+    <TextView
+        android:id="@+id/serviceNameLbl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/service_massage"
+        android:textColor="@android:color/white"
+        android:textSize="14sp"
+        android:layout_marginBottom="2dp" />
+
+    <TextView
+        android:id="@+id/bookedAtLbl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Booked At: 21 May 2025, 15:00"
+        android:textColor="@android:color/white"
+        android:textSize="12sp"
+        android:layout_marginBottom="4dp" />
+
+    <!-- Staff Label -->
     <TextView
         android:id="@+id/staffNameLbl"
         android:layout_width="wrap_content"
@@ -65,12 +74,9 @@
         android:textColor="@android:color/white"
         android:textSize="14sp"
         android:textStyle="bold"
-        android:layout_marginBottom="8dp"
-        android:shadowColor="#80000000"
-        android:shadowDx="1"
-        android:shadowDy="1"
-        android:shadowRadius="1" />
+        android:layout_marginBottom="8dp" />
 
+    <!-- Action Buttons -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -78,9 +84,19 @@
         android:gravity="end">
 
         <Button
+            android:id="@+id/rescheduleBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Reschedule"
+            android:textColor="#3B84F1"
+            android:backgroundTint="@color/white"
+            style="?android:attr/buttonBarButtonStyle" />
+
+        <Button
             android:id="@+id/cancelBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
             android:text="@string/cancel"
             android:textColor="#3B84F1"
             android:backgroundTint="@color/white"
@@ -90,8 +106,8 @@
             android:id="@+id/feedbackBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/feedback"
             android:layout_marginStart="8dp"
+            android:text="@string/feedback"
             android:textColor="#3B84F1"
             android:backgroundTint="@color/white"
             style="?android:attr/buttonBarButtonStyle" />

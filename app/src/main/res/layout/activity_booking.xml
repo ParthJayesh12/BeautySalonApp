@@ -8,7 +8,6 @@
     android:background="@drawable/login_background"
     android:padding="16dp">
 
-    <!-- Booking Screen Title -->
     <TextView
         android:id="@+id/bookingScreenTitle"
         android:layout_width="wrap_content"
@@ -22,12 +21,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="24dp" />
 
-    <!-- Selected Service -->
     <TextView
         android:id="@+id/selectedServiceLbl"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/selected_service"
         android:textColor="@color/white"
         android:textSize="18sp"
         app:layout_constraintTop_toBottomOf="@id/bookingScreenTitle"
@@ -35,12 +32,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="16dp" />
 
-    <!-- Service Description -->
     <TextView
         android:id="@+id/serviceDescriptionLbl"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/booking_service_description"
         android:textColor="@color/white"
         android:textSize="16sp"
         app:layout_constraintTop_toBottomOf="@id/selectedServiceLbl"
@@ -48,7 +43,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="8dp" />
 
-    <!-- Preferred Staff Label -->
     <TextView
         android:id="@+id/preferredStaffLbl"
         android:layout_width="wrap_content"
@@ -59,7 +53,6 @@
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="24dp" />
 
-    <!-- Preferred Staff Spinner -->
     <Spinner
         android:id="@+id/preferredStaffSpinner"
         android:layout_width="0dp"
@@ -72,7 +65,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="8dp" />
 
-    <!-- Select Date Button -->
     <Button
         android:id="@+id/selectDateBtn"
         android:layout_width="0dp"
@@ -82,25 +74,24 @@
         android:textColor="#3B84F1"
         app:layout_constraintTop_toBottomOf="@id/preferredStaffSpinner"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/selectTimeBtn"
+        app:layout_constraintEnd_toStartOf="@id/timeSlotSpinner"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="8dp" />
 
-    <!-- Select Time Button -->
-    <Button
-        android:id="@+id/selectTimeBtn"
+    <Spinner
+        android:id="@+id/timeSlotSpinner"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="@string/select_time"
-        android:backgroundTint="@color/white"
-        android:textColor="#3B84F1"
+        android:layout_height="48dp"
+        android:minHeight="48dp"
+        android:background="@drawable/rounded_corner"
+        android:padding="8dp"
+        android:popupBackground="@color/white"
         app:layout_constraintTop_toBottomOf="@id/preferredStaffSpinner"
         app:layout_constraintStart_toEndOf="@id/selectDateBtn"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="24dp"
         android:layout_marginStart="8dp" />
 
-    <!-- Confirm Booking Button -->
     <Button
         android:id="@+id/confirmBookingBtn"
         android:layout_width="0dp"
@@ -113,7 +104,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="32dp" />
 
-    <!-- Cancel Booking Button -->
     <Button
         android:id="@+id/cancelBookingBtn"
         android:layout_width="0dp"
